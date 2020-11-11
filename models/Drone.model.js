@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
-
 const droneSchema = new Schema(
   {
     name: String,
-    propellers: { type: Number, max: 4 },
-    maxSpeed: { type: Number, max: 18 }
+    propellers: Number,
+    maxSpeed: Number
   },
   {
-  timestamps: true
-}
-)
+    timestamps: true
+  }
+);
 
-module.exports = model('Drone', droneSchema);
 
+const Drone = mongoose.model('Drone', droneSchema);
+
+module.exports = Drone; 
